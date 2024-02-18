@@ -27,4 +27,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/get_ip_address_info:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/get_ip_address_info:latest
