@@ -6,7 +6,8 @@ RUN cargo build --release \
     && strip target/release/get_address_by_ip \
     && rm -rf target/debug
 
-FROM debian:buster-slim
+FROM redhat/ubi8-micro:latest
 WORKDIR /app
 COPY --from=builder /app/target/release/get_address_by_ip .
 EXPOSE 8080
+CMD ./get_address_by_ip /app/
