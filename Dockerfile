@@ -7,6 +7,7 @@ RUN cargo build --release \
     && rm -rf target/debug
 
 FROM redhat/ubi8-micro:latest
+RUN RUN yum -y install httpd; yum clean all;
 WORKDIR /app
 COPY --from=builder /app/target/release/get_address_by_ip .
 EXPOSE 8080
