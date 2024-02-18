@@ -6,8 +6,8 @@ RUN cargo build --release \
     && strip target/release/get_address_by_ip \
     && rm -rf target/debug
 
-FROM redhat/ubi8-micro:latest
-RUN RUN yum -y install httpd; yum clean all;
+FROM debian:buster-slim
+RUN apt-get update && apt-get install -y libssl-dev
 WORKDIR /app
 COPY --from=builder /app/target/release/get_address_by_ip .
 EXPOSE 8080
