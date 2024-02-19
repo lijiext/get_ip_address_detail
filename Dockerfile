@@ -9,5 +9,5 @@ RUN cargo build --release \
 FROM messense/rust-musl-cross:x86_64-musl
 WORKDIR /app
 COPY --from=builder /app/target/release/get_address_by_ip .
-EXPOSE 8080
+EXPOSE 9000
 CMD ./get_address_by_ip

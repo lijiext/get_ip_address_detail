@@ -84,7 +84,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::default())
             .route("/", web::get().to(index))
     })
-    .bind("0.0.0.0:8080")?
+    .bind("0.0.0.0:9000")?
     .run()
     .await
     .map_err(|e| {
