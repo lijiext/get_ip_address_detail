@@ -6,8 +6,7 @@ RUN cargo build --release \
     && strip target/release/get_address_by_ip \
     && rm -rf target/debug
 
-FROM debian:buster-slim
-RUN apt-get update && apt-get install -y libssl-dev
+FROM messense/rust-musl-cross:x86_64-musl
 WORKDIR /app
 COPY --from=builder /app/target/release/get_address_by_ip .
 EXPOSE 8080
